@@ -26,9 +26,9 @@ challenge/
 │   ├── Dockerfile            # imagen Python 3.11.8
 │   ├── requirements.txt      # pandas, openpyxl, psycopg
 │   ├── app/
-│   │   ├── etl.py            # ingesta Excel/CSV → analytics_raw
-│   │   └── transform.py      # limpieza simple → analytics_clean
-│   └── tests/ (opcional)     # calidad con pytest
+│       ├── etl.py            # ingesta Excel/CSV → analytics_raw
+│       └── transform.py      # limpieza simple → analytics_clean
+│   
 │
 ├── data/
 │   └── Base PRUEBA - ANALITICA.xlsx   # archivo fuente
@@ -55,8 +55,8 @@ Con PowerShell/CMD no es necesario.
 ## ⚙️ 3 · Instalación rápida
 ```bash
 # Clonar
-git clone https://github.com/<tu-user>/prueba-datos.git
-cd prueba-datos
+git clone https://github.com/felipevelez48/challenge_data.git
+cd challenge_data
 
 # Variables de entorno
 cp .env.example .env
