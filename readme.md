@@ -118,16 +118,7 @@ Filas limpias: 33668 | Nulos totales: 0
 
 ---
 
-## ✅ 6 · Tests (opcional)
-Si deseas lanzar pruebas de calidad básica:
-```bash
-docker compose run --rm etl pytest
-```
-(Se incluye un ejemplo en `etl/tests/` que valida que no queden nulos y que la cuenta de filas sea consistente).
-
----
-
-## 🛠️ 7 · Comandos útiles
+## ✅ 6 · Comandos útiles
 | Acción | Comando |
 |--------|---------|
 | Ver contenedores | `docker compose ps` |
@@ -137,7 +128,7 @@ docker compose run --rm etl pytest
 
 ---
 
-## 📝 8 · Notas finales
+## 📝 7 · Notas finales
 * La imagen ETL usa **ENTRYPOINT ["python"]**; cualquier script se ejecuta pasándolo como argumento.
 * Las advertencias *UserWarning / FutureWarning* de Pandas se dejan visibles para que el revisor note decisiones pendientes (uso de SQLAlchemy, copia vs vista). No afectan el funcionamiento.
 
