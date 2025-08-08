@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16
+    env_file: .env
+    ports: ["5432:5432"]
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d      # carga init.sql al primer arranque
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
+      interval: 10s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    env_file: .env
+    depends_on: [db]
+    ports: ["5050:80"]
+
+  etl:
+    build: ./etl
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./etl/app:/app
+      - ./data:/data
+
+volumes:
+  db_data:
